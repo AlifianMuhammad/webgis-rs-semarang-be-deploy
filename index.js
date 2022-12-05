@@ -1,8 +1,12 @@
 const express = require("express");
 const dbClient = require("./db");
+const morgan = require("morgan");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.port || 9000;
+
+app.use(cors());
 
 app.use(express.json());
 
