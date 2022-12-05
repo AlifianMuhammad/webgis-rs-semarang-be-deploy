@@ -15,21 +15,12 @@ app.use(express.json());
 //   res.status(200).json(result.rows);
 // });
 
-app.get("/api/v1/rumahsakit/all", async (req, res) => {
+app.get("/rumahsakit", async (req, res) => {
   const result = await dbClient.query(
     "SELECT nama as label, smid as value  FROM rumah_sakit"
   );
   res.status(200).json({
     rumahsakit: result.rows,
-  });
-});
-
-app.get("/api/v1/spesialis/all", async (req, res) => {
-  const result = await dbClient.query(
-    "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis WHERE id < 5"
-  );
-  res.status(200).json({
-    spesialis: result.rows,
   });
 });
 
