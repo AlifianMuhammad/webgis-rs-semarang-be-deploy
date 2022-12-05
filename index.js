@@ -24,4 +24,23 @@ app.get("/api/v1/rumahsakit/all", async (req, res) => {
   });
 });
 
+app.get("api/v1/spesialis/all", async (req, res) => {
+  const result = await dbClient.query(
+    "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis"
+  );
+  res.status(200).json({
+    spesialisAll: result.rows,
+  });
+});
+app.get("api/v1/spesialis/allvalue", async (req, res) => {
+  const result = await dbClient.query(
+    "SELECT nama_spesialis as label, nama_spesialis as value FROM spesialis"
+  );
+  res.status(200).json({
+    spesialisAll: result.rows,
+  });
+});
+
+app.get;
+
 app.listen(port, () => console.log(`listen on port ${port}`));
