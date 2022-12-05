@@ -23,14 +23,14 @@ app.get("/api/v1/rumahsakit/all", async (req, res) => {
     rumahsakit: result.rows,
   });
 });
-app.get("/api/v1/spesialis/allitem", async (req, res) => {
-  const result = await dbClient.query(
-    "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis WHERE id < 5"
-  );
-  res.status(200).json({
-    rumahsakit: result.rows,
-  });
-});
+// app.get("/api/v1/spesialis/allitem", async (req, res) => {
+//   const result = await dbClient.query(
+//     "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis WHERE id < 5"
+//   );
+//   res.status(200).json({
+//     rumahsakit: result.rows,
+//   });
+// });
 
 app.get("api/v1/spesialis/all", async (req, res) => {
   const result = await dbClient.query(
