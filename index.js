@@ -41,6 +41,4 @@ app.get("api/v1/spesialis/allvalue", async (req, res) => {
   });
 });
 
-app.get;
-
 app.listen(port, () => console.log(`listen on port ${port}`));
