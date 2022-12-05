@@ -23,7 +23,7 @@ app.get("/api/v1/rumahsakit/all", async (req, res) => {
     rumahsakit: result.rows,
   });
 });
-app.get("/api/v1/rumahsakit/allitem", async (req, res) => {
+app.get("/api/v1/spesialis/allitem", async (req, res) => {
   const result = await dbClient.query(
     "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis WHERE id < 60"
   );
