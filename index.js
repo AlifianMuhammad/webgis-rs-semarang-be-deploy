@@ -40,4 +40,18 @@ app.get("/spesialislabelvalue", async (req, res) => {
   });
 });
 
+app.get("/spesialis/:namaSpesialis", async (req, res) => {
+  const result = await dbClient.query(
+    `SELECT DISTINCT rumah_sakit.smid
+    FROM dokter, rumah_sakit, spesialis
+    where dokter.rumah_sakit_smid = rumah_sakit.smid 
+    and dokter.spesialis_id = spesialis.id  
+    and nama_spesialis = $1`,
+    [req.params.namaSpesialis]
+  );
+  res.status(200).json({
+    data: result.rows,
+  });
+});
+
 app.listen(port, () => console.log(`listen on port ${port}`));
