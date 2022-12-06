@@ -25,7 +25,7 @@ app.get("/rumahsakit", async (req, res) => {
 });
 app.get("/spesialislabelkey", async (req, res) => {
   const result = await dbClient.query(
-    "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis where id<5"
+    "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis"
   );
   res.status(200).json({
     spesialislabelkey: result.rows,
