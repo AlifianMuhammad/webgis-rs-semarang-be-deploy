@@ -33,7 +33,7 @@ app.get("/spesialislabelkey", async (req, res) => {
 });
 app.get("/spesialislabelvalue", async (req, res) => {
   const result = await dbClient.query(
-    "SELECT nama_spesialis as label, nama_spesialis as value FROM spesialis where id<5"
+    "SELECT nama_spesialis as label, nama_spesialis as value FROM spesialis"
   );
   res.status(200).json({
     spesialislabelvalue: result.rows,
