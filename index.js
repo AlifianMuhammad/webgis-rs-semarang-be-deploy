@@ -53,7 +53,7 @@ app.get("/spesialis/:namaSpesialis", async (req, res) => {
   });
 });
 
-app.get("rumahsakit/findRS/:smid", async (req, res) => {
+app.get("/rumahsakit/findRS/:smid", async (req, res) => {
   const result = await dbClient.query(
     `SELECT nama, smid from rumah_sakit WHERE smid = $1`,
     [req.params.smid]
