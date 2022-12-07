@@ -53,4 +53,14 @@ app.get("/spesialis/:namaSpesialis", async (req, res) => {
   });
 });
 
+app.get("rumahsakit/findRS/:smid", async (req, res) => {
+  const result = await dbClient.query(
+    `SELECT nama, smid from rumah_sakit WHERE smid = $1`,
+    [req.params.smid]
+  );
+  res.status(200).json({
+    data: result.rows,
+  });
+});
+
 app.listen(port, () => console.log(`listen on port ${port}`));
