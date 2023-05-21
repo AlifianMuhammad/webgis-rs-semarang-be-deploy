@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.get("/rumahsakit", async (req, res) => {
   const result = await dbClient.query(
-    "SELECT nama as label, smid as value, alamat  FROM rumah_sakit"
+    "SELECT nama as label, smid as value, alamat, kode  FROM rumah_sakit"
   );
   res.status(200).json({
     rumahsakit: result.rows,
