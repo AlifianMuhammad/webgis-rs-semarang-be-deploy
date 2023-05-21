@@ -16,12 +16,13 @@ app.use(express.json());
 
 app.get("/rumahsakit", async (req, res) => {
   const result = await dbClient.query(
-    "SELECT nama as label, smid as value  FROM rumah_sakit"
+    "SELECT nama as label, smid as value, alamat  FROM rumah_sakit"
   );
   res.status(200).json({
     rumahsakit: result.rows,
   });
 });
+
 app.get("/spesialislabelkey", async (req, res) => {
   const result = await dbClient.query(
     "SELECT nama_spesialis as label, nama_spesialis as key FROM spesialis"
